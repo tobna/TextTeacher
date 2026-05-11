@@ -6,6 +6,8 @@
 
 > **Tobias Christian Nauen, Stanislav Frolov, Brian B. Moser, Federico Raue, Ahmed Anwar, Andreas Dengel**
 
+![TextTeacher Fig. 1](images/featured.png)
+
 TextTeacher is a simple auxiliary training objective that injects semantic knowledge from a frozen text encoder into image classification training — and then discards it entirely at inference.
 The result is a plain, fast vision model with no added latency, no multimodal components, and no text dependency at deployment.
 
