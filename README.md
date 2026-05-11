@@ -16,7 +16,7 @@ It outperforms online vision knowledge distillation from DINOv2-L, matching its 
 
 ## News
 
-- [11.03.2026] We release training code and a [project page](https://nauen-it.de/publications/text-teacher) for TextTeacher 🌐
+- [11.05.2026] We release training code and a [project page](https://nauen-it.de/publications/text-teacher) for TextTeacher 🌐
 
 ## Requirements
 
