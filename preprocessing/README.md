@@ -10,8 +10,6 @@ The pipeline has three stages:
 If you want to skip this and use our precomputed embeddings for ImageNet, download them from HuggingFace:
 **[TNauen/ImageNet-Caption-Encodings](https://huggingface.co/datasets/TNauen/ImageNet-Caption-Encodings)**
 
----
-
 ## Environment Setup
 
 Before running any script, export the following environment variables:
@@ -22,8 +20,6 @@ export HF_HOME=<path/to/hf_cache/>         # where Hugging Face downloads model 
 ```
 
 `HF_TOKEN` is a personal access token from [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
-
----
 
 ## Step 1: Generate Captions
 
@@ -79,8 +75,6 @@ For large-scale parallel captioning, use the provided SLURM array job scripts:
 
 Both scripts pass `$SLURM_ARRAY_TASK_ID` as `-id` and use `-c` to resume interrupted runs automatically.
 
----
-
 ## Step 2: Encode Captions
 
 `encode_text.py` reads the CSV captions, encodes each one with a text encoder, and saves per-image `.emb.npy` files inside an uncompressed zip archive (`all_encodings.zip`).
@@ -124,8 +118,6 @@ sbatch encode-text.sh --model bert-large-cased \
   --outfolder <path/to/encodings/ImageNet-CoCa/BERT-L/>
 ```
 
----
-
 ## Step 3: Compute Normalizer Stats
 
 `make_encoding_normalizer.py` computes the per-dimension mean and std across all encodings in a folder and saves them as `stats.npy`. These are used at training time to normalize the text targets to zero mean and unit std.
@@ -142,8 +134,6 @@ To run on a SLURM cluster:
 ./normalize-encodings.sh <path/to/encodings/ImageNet-CoCa/<encoder>/>
 ```
 
----
-
 ## Configuring Paths
 
 Edit the top of `imagenet_text_ds.py` to point to your local paths:
@@ -154,8 +144,6 @@ _ROOT_ENCODINGS = "/path/to/encodings/"   # root of the encodings tree (containi
 ```
 
 The training code's path configuration (`paths_config.py` in the repo root) is separate and documented there.
-
----
 
 ## Expected Output Structure
 
