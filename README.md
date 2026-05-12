@@ -16,6 +16,7 @@ It outperforms online vision knowledge distillation from DINOv2-L, matching its 
 
 ## News
 
+- [12.05.2026] We release the [caption \& embedding preprocessing](/preprocessing/README.md) code for TextTeacher ⚙️
 - [11.05.2026] We release training code and a [project page](https://nauen-it.de/publications/text-teacher) for TextTeacher 🌐
 
 ## Requirements
@@ -27,12 +28,18 @@ Install all dependencies with:
 pip install -r requirements.txt
 ```
 
-## Precomputed Caption Embeddings
+## Caption Embeddings
+
+### Precomputed ImageNet Embeddings
 
 To avoid re-encoding captions at every run, we provide precomputed text embeddings for ImageNet on HuggingFace:
 **[TNauen/ImageNet-Caption-Encodings](https://huggingface.co/datasets/TNauen/ImageNet-Caption-Encodings)**
 
-Download and point `paths_config.py` at the embedding files.
+### Captioner and Embedding Code
+
+To generate embeddings for a different dataset or caption model, see [`preprocessing/`](./preprocessing/README.md).
+
+Point `paths_config.py` at the embedding files.
 
 ## Usage
 

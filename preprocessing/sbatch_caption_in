@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --array=0-99%10
+#SBATCH --time=1-0
+#SBATCH --mem=32G
+#SBATCH --gpus=1
+#SBATCH --partition=A100-80GB,H100,H200
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --job-name="ImageCaptioning"
+#SBATCH --output=/netscratch/nauen/slurm/%x-%j-%N-%a.out
+
+srun --container-image=/netscratch/nauen/images/image_captioning_v2.sqsh \
+  --container-mounts=/netscratch/$USER:/netscratch/$USER,/ds-sds:/ds-sds:ro,/ds:/ds:ro,"$(pwd)":"$(pwd)" \
+  --container-workdir="$(pwd)" \
+  python3 make_captions.py -d imagenet -id $SLURM_ARRAY_TASK_ID -w 100 -b 32 -c "$@"
