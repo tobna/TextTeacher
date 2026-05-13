@@ -16,6 +16,7 @@ It outperforms online vision knowledge distillation from DINOv2-L, matching its 
 
 ## News
 
+- [13.05.2026] We release the [precomputed captions and embeddings](https://huggingface.co/datasets/TNauen/ImageNet-Caption-Encodings) on huggingface 💾 🤗
 - [12.05.2026] We release the [caption \& embedding preprocessing](/preprocessing/README.md) code for TextTeacher ⚙️
 - [11.05.2026] We release training code and a [project page](https://nauen-it.de/publications/text-teacher) for TextTeacher 🌐
 
